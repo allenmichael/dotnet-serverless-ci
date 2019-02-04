@@ -1,0 +1,12 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - dotnet tool install -g Amazon.Lambda.Tools
+  build:
+    commands: 
+      - dotnet lambda package-ci --s3-bucket amsxbg-dotnet-eu -ot packaged.json
+artifacts:
+  files: 
+    - packaged.json
